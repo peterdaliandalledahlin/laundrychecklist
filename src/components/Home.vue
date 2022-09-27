@@ -1,166 +1,125 @@
 <template>
   <v-container>
     <v-btn block @click="deleteAssignmentList()">Radera databasen</v-btn>
-    <v-btn block @click="getAssignmentList()">Ny databas</v-btn>
+    <!-- <v-btn block @click="getAssignmentList()">Ny databas</v-btn>
     <v-btn block @click="filteredAssignments()">Hämta alla tvättstugor</v-btn>
-    <v-btn class="mb-5" block @click="getOneAssignment()">Hämta en tvättstuga</v-btn>
-    
-    <div v-for="(assignment, index) in storedAssignments" :key="index">
-      <v-sheet
-        elevation="8"
-        class="mx-auto mb-5"
-        height="100%"
-        width="100%"
-      >  
-        <v-checkbox
-          v-model="assignment.occupied"
-          :label="`${assignment.laundryroom} upptagen`"
-          color="red"
-          hide-details
-          @change="updateOccupiedLandry(assignment.id, assignment.occupied)"
-        ></v-checkbox>
+    <v-btn block @click="getAssignmentsForLillsidan()">Hämta tvättstugor Lillsidan</v-btn>
+    <v-btn block @click="getAssignmentsForKorsangen()">Hämta tvättstugor för Korsängen</v-btn> -->
+    <v-btn class="mb-5" block @click="buttonClicked()">Testa nya</v-btn>  
+    <v-sheet
+      elevation="8"
+      class="mx-auto my-5"
+      height="100%"
+      width="100%"
+    >  
+      <div v-for="region in storedRegions" :key="region.id">
+        <v-card
+          class="mx-auto pt-5 mb-3"
+          max-width="300"
+        >
+          <v-img
+            class="align-end text-white"
+            height="200"
+            :src="region.img"
+            cover
+          >
+            <v-card-title>{{ region.name }}</v-card-title>
+          </v-img>
 
-        <v-list class="pa-0">
-          <v-list-item>
-            <template v-slot:prepend>
-              <v-avatar color="grey-lighten-1">
-                <v-img src="key.png" aria-label="nyckel" alt="nyckel"></v-img>
-              </v-avatar>
-            </template>
+          <!-- <v-card-subtitle class="pt-4">
+            Number 10
+          </v-card-subtitle> -->
 
-            <template v-slot:append>
-              {{assignment.key ? 'nyckel nr.' + assignment.key : 'Ingen nyckel behövs'}}
-            </template>
-          </v-list-item>
-        </v-list>
-    
-        <v-expansion-panels variant="accordion">
-          <v-expansion-panel :disabled="assignment.occupied">
-            <v-expansion-panel-title>
-              {{assignment.laundryroom}}
-            </v-expansion-panel-title>
-            <v-expansion-panel-text v-for="(task, index) in assignment.tasks" :key="index">
-              <v-list>
-                <v-list-item
-                  :key="task.id"
-                  :title="task.name"
-                >
-                  <template v-slot:prepend>
-                    <v-avatar color="grey-lighten-1">
-                      <v-img :src="task.img" height="100%" cover></v-img>
-                    </v-avatar>
-                  </template>
-  
-                  <template v-slot:append>
-                    <v-btn
-                      @click="task.done = !task.done, updateAssignmentList(assignment.id, task.id, task.done)"
-                      :color="task.done ? 'green' : 'red'"
-                      :icon="task.done ? 'mdi-check' : 'mdi-close'"
-                      size="x-small"
-                    ></v-btn>
-                  </template>
-                  <!--
-                  <v-checkbox
-                    v-model="assignment.done"
-                    :label="`Färdig med tvättstuga: ${checkbox.toString()}`"
-                    color="success"
-                  ></v-checkbox>
-                  -->
-                </v-list-item>
-              </v-list>
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels> 
+          <v-card-text>
+            <div>Tvättstugor på {{ region.name}}</div>
+          </v-card-text>
 
-      </v-sheet>
-    </div><!--loop storedAssignments-->
+          <v-card-actions>
+            <v-btn color="orange">
+              <!-- <router-link :to="`/${region.link}/${region.id}`" custom v-slot="{ navigate }"> -->
+              <router-link :to="{ name: 'laundryroom-list', params: { id: region.id } }" custom v-slot="{ navigate }">
+                <span @click="navigate" @keypress.enter="navigate" role="link">Hämta tvättstugor för {{ region.name }}</span>
+              </router-link>
+            </v-btn>
+          </v-card-actions>
+        </v-card>   
+      </div><!--loop storedAssignments-->
+    </v-sheet>
   </v-container>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 //import generateAssigments from '../../laundryrooms'
-import generateAssigments from '../../laundryrooms'
+//import generateAssigments from '../../laundryrooms'
+//import { generateAssigmentsForLillsidan, generateAssigmentsForKorsangen } from '../../laundryrooms'
+//import { generateAssigments, generateAssigmentsForLillsidan, generateAssigmentsForKorsangen, generateAssigmentList } from '../../laundryrooms'
+import { generateAssigmentList } from '../../laundryrooms'
 
 import Localbase from 'localbase'
 let db = new Localbase('db') 
 
-let storedAssignments = ref([])
+let storedRegions = ref([])
 
 const deleteAssignmentList = async () => {
   await db.delete()
 }
 
-const getAssignmentList = () => {
-  generateAssigments()
-  //generateAssigmentList()
-}
+// const getAssignmentList = () => {
+//   generateAssigments()
+//   //generateAssigmentList()
+// }
 
-const filteredAssignments = async () => {
-  const assignments = await db.collection('assignments').get()
-      return storedAssignments.value = assignments
-        .sort((a, b) => a.id - b.id
-      )
-}
+// const filteredAssignments = async () => {
+//   const assignments = await db.collection('assignments').get()
+//       return storedAssignments.value = assignments
+//         .sort((a, b) => a.id - b.id
+//       )
+// }
 
-// const getAllAssignments = () => {
-//   db.collection('assignments').get().then(assignments => {
-//     storedAssignments.value = assignments
+
+
+// const getOneAssignment = () => {
+//   db.collection('assignments').doc({ id: 1 }).get().then(document => {
+//     console.log(document)
 //   })
 // }
 
-const getOneAssignment = () => {
-  db.collection('assignments').doc({ id: 1 }).get().then(document => {
-    console.log(document)
-  })
+// const updateOccupiedLandry = (id, occupied) => {
+//   db.collection('assignments').doc({ id }).update({
+//     occupied
+//   })
+// }
+
+// const updateAssignmentList = async (laundryroomId, taskId, done) => {
+//   const laundryRoom = await db.collection('assignments').doc({ id: laundryroomId}).get()
+//   //console.log(laundryRoom)
+//    for( let i = 0; i < laundryRoom.tasks.length; i++) {
+//     if(laundryRoom.tasks[i].id == taskId) {
+//       laundryRoom.tasks[i].done = done
+//     }
+//    }
+//   db.collection('assignments').doc({ id: laundryroomId }).set(laundryRoom)
+//   //console.log(id, done)
+// }
+
+
+const buttonClicked = () => {
+  generateAssigmentList()
 }
 
-const updateOccupiedLandry = (id, occupied) => {
-  db.collection('assignments').doc({ id }).update({
-  occupied
-})
-}
-
-const updateAssignmentList = async (laundryroomId, taskId, done) => {
-  const laundryRoom = await db.collection('assignments').doc({ id: laundryroomId}).get()
-  //console.log(laundryRoom)
-   for( let i = 0; i < laundryRoom.tasks.length; i++) {
-    if(laundryRoom.tasks[i].id == taskId) {
-      laundryRoom.tasks[i].done = done
-    }
-   }
-  db.collection('assignments').doc({ id: laundryroomId }).set(laundryRoom)
-  //console.log(id, done)
-}
-
-const closePanel = () => {
-  //const element1 = document.querySelector('[aria-expanded]')?.getAttribute('aria-expanded')
-  //const element2 = document.querySelector('.v-expansion-panel.v-expansion-panel--active')
-  //element.classList.remove('v-expansion-panel--active')
-  // var x = document.querySelector('[aria-expanded]').getAttribute("aria-expanded"); 
-  // if (x == "true") 
-  // {
-  // x = "false"
-  // } else {
-  // x = "true"
-  // }
-  // document.querySelector('[aria-expanded]').setAttribute("aria-expanded", x)
-  //console.log(element1)
-}
-
-onMounted( async () => {
-  //generateAssigments()
-  // db.collection('assignments').get().then(assignments => {
-  //   console.log(assignments)
-  // })
-  // storedAssignments.value = await JSON.parse(localStorage.getItem("assignments"))
-  // console.log(storedAssignments)
+onMounted(() => {
+    db.collection('regions').get().then(regions => {
+      storedRegions.value = regions
+    })  
 })
 
-//const show = ref(false)
-//const checkbox = ref(false)
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
+
 /* v-expansion-panel v-expansion-panel--active */
 </style>

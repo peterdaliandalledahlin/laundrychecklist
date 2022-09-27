@@ -43,7 +43,7 @@
 
       <v-img
         class="mx-2"
-        src="logotype.png"
+        src="/logotype.png"
         max-height="40"
         max-width="40"
         contain
@@ -53,16 +53,15 @@
     </v-app-bar>
 
     <v-main>
-      <Home />
       <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+//import Home from './components/Home.vue'
   export default {
-    components: { Home },
+    components: {},
     data: () => ({
       drawer: null,
       items: [

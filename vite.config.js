@@ -11,7 +11,7 @@ export default defineConfig({
       reactivityTransform: true,
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => ['v-list-item-content'].includes(tag),
+          isCustomElement: (tag) => ['v-list-item-content', 'v-flex'].includes(tag),
         }
       }
     }),
