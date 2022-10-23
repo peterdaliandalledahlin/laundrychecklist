@@ -1,21 +1,16 @@
 <template>
-  <v-container>
-    <v-btn block @click="deleteAssignmentList()">Radera databasen</v-btn>
-    <!-- <v-btn block @click="getAssignmentList()">Ny databas</v-btn>
-    <v-btn block @click="filteredAssignments()">Hämta alla tvättstugor</v-btn>
-    <v-btn block @click="getAssignmentsForLillsidan()">Hämta tvättstugor Lillsidan</v-btn>
-    <v-btn block @click="getAssignmentsForKorsangen()">Hämta tvättstugor för Korsängen</v-btn> -->
-    <v-btn class="mb-5" block @click="buttonClicked()">Testa nya</v-btn>  
+  <v-container> 
     <v-sheet
       elevation="8"
       class="mx-auto my-5"
       height="100%"
       width="100%"
     >  
-      <div v-for="region in storedRegions" :key="region.id">
+      <v-row>
         <v-card
+        v-for="region in storedRegions" :key="region.id"
           class="mx-auto pt-5 mb-3"
-          max-width="300"
+          max-width="350"
         >
           <v-img
             class="align-end text-white"
@@ -25,101 +20,103 @@
           >
             <v-card-title>{{ region.name }}</v-card-title>
           </v-img>
-
-          <!-- <v-card-subtitle class="pt-4">
-            Number 10
-          </v-card-subtitle> -->
-
+    
           <v-card-text>
             <div>Tvättstugor på {{ region.name}}</div>
           </v-card-text>
-
+    
           <v-card-actions>
             <v-btn color="orange">
-              <!-- <router-link :to="`/${region.link}/${region.id}`" custom v-slot="{ navigate }"> -->
               <router-link :to="{ name: 'laundryroom-list', params: { id: region.id } }" custom v-slot="{ navigate }">
                 <span @click="navigate" @keypress.enter="navigate" role="link">Hämta tvättstugor för {{ region.name }}</span>
               </router-link>
             </v-btn>
           </v-card-actions>
-        </v-card>   
-      </div><!--loop storedAssignments-->
+        </v-card>
+      </v-row>
     </v-sheet>
+
+    <div v-show="banner">
+
+      <v-card
+        class="mx-auto"
+        max-width="400"
+      >
+        <v-img
+          class="align-end text-white"
+          height="200"
+          src="tvattstuga.webp"
+          cover
+        >
+          <v-card-title>Det finns ingen tvättstugechecklista.</v-card-title>
+        </v-img>
+
+        <v-card-subtitle class="pt-4">
+          Number 10
+        </v-card-subtitle>
+
+        <v-card-text>
+          <div>Gå till "Inställningar" i menyn till vänster och följ instruktionerna, eller tryck på länken nedan .</div>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="orange">
+            <router-link to="/settings" custom v-slot="{ navigate }">
+              <span @click="navigate" @keypress.enter="navigate" role="link">Gå till "Inställningar"</span>
+            </router-link>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+
+      <!-- <v-banner
+      v-model="banner"
+        lines="one"
+        icon="mdi-database-refresh"
+        color="deep-purple-accent-4"
+        class="my-4"
+      >
+        <v-banner-text>
+          Det finns ingen checklista, gå till Inställningar i menyn till vänster och följ instruktionerna.
+        </v-banner-text>
+  
+        <template v-slot:actions>
+          <v-btn @click="banner = false">Stäng</v-btn>
+        </template>
+      </v-banner> -->
+    </div>
   </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-//import generateAssigments from '../../laundryrooms'
-//import generateAssigments from '../../laundryrooms'
-//import { generateAssigmentsForLillsidan, generateAssigmentsForKorsangen } from '../../laundryrooms'
-//import { generateAssigments, generateAssigmentsForLillsidan, generateAssigmentsForKorsangen, generateAssigmentList } from '../../laundryrooms'
-import { generateAssigmentList } from '../../laundryrooms'
+//IMPORTS
+  import { ref, onMounted } from 'vue'
+  import Localbase from 'localbase'
 
-import Localbase from 'localbase'
-let db = new Localbase('db') 
-
-let storedRegions = ref([])
-
-const deleteAssignmentList = async () => {
-  await db.delete()
-}
-
-// const getAssignmentList = () => {
-//   generateAssigments()
-//   //generateAssigmentList()
-// }
+//LOCALBASE
+  let db = new Localbase('db') 
 
 // const filteredAssignments = async () => {
-//   const assignments = await db.collection('assignments').get()
-//       return storedAssignments.value = assignments
-//         .sort((a, b) => a.id - b.id
-//       )
-// }
+  //   const assignments = await db.collection('assignments').get()
+  //       return storedAssignments.value = assignments
+  //         .sort((a, b) => a.id - b.id
+  //       )
+  // }
 
-
-
-// const getOneAssignment = () => {
-//   db.collection('assignments').doc({ id: 1 }).get().then(document => {
-//     console.log(document)
-//   })
-// }
-
-// const updateOccupiedLandry = (id, occupied) => {
-//   db.collection('assignments').doc({ id }).update({
-//     occupied
-//   })
-// }
-
-// const updateAssignmentList = async (laundryroomId, taskId, done) => {
-//   const laundryRoom = await db.collection('assignments').doc({ id: laundryroomId}).get()
-//   //console.log(laundryRoom)
-//    for( let i = 0; i < laundryRoom.tasks.length; i++) {
-//     if(laundryRoom.tasks[i].id == taskId) {
-//       laundryRoom.tasks[i].done = done
-//     }
-//    }
-//   db.collection('assignments').doc({ id: laundryroomId }).set(laundryRoom)
-//   //console.log(id, done)
-// }
-
-
-const buttonClicked = () => {
-  generateAssigmentList()
-}
-
-onMounted(() => {
-    db.collection('regions').get().then(regions => {
-      storedRegions.value = regions
-    })  
-})
+let banner = ref(false)
+  
+//GET REGIONS COLLECTION AND LOOP REGIONS TO DOM
+  let storedRegions = ref([])
+  onMounted(() => {
+      db.collection('regions').get().then(regions => {
+        if(regions.length) {
+          console.log('lista')
+          banner.value = false
+          storedRegions.value = regions
+        }else {
+          console.log('ingen lista')
+          banner.value = true
+        }
+      })  
+  })
 
 </script>
-
-<style scoped>
-* {
-  box-sizing: border-box;
-}
-
-/* v-expansion-panel v-expansion-panel--active */
-</style>

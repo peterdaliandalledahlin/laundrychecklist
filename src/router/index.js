@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from '../components/Home.vue'
+import Settings from '../components/pages/Settings.vue'
 import LaundryroomList from '../components/pages/LaundryroomList.vue'
 import NotFound from '../components/NotFound.vue'
 
@@ -8,6 +9,11 @@ const routes = [
     {
         path: '/',
         component: Home
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: Settings,
     },
     {
         path: '/laundryroom-list/:id',
@@ -21,7 +27,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    //history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
 })
 

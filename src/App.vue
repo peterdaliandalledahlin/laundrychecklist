@@ -15,7 +15,7 @@
         </v-list-item-content>
       </v-list-item>
       
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider>
   
       <v-list density="compact">
         <v-list-subheader>LÄNKAR</v-list-subheader>
@@ -32,6 +32,24 @@
           </template>
 
           <v-list-item-title @click="drawer = !drawer">{{item.text}}</v-list-item-title>
+        </v-list-item>
+      </v-list> -->
+
+      <v-divider></v-divider>
+  
+      <v-list density="compact">
+        <v-list-subheader>LÄNKAR</v-list-subheader>
+        <v-list-item link to="/">
+          <template v-slot:prepend>
+            <v-icon icon="mdi-home"></v-icon>
+          </template>
+          <v-list-item-title @click="drawer = !drawer">Hem</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/settings">
+          <template v-slot:prepend>
+            <v-icon icon="mdi-cog"></v-icon>
+          </template>
+          <v-list-item-title @click="drawer = !drawer">Inställningar</v-list-item-title>
         </v-list-item>
       </v-list>
 
@@ -58,17 +76,22 @@
   </v-app>
 </template>
 
-<script>
-//import Home from './components/Home.vue'
-  export default {
-    components: {},
-    data: () => ({
-      drawer: null,
-      items: [
-        { text: 'Hem', icon: 'mdi-home', link: '/home' },
-        { text: 'Tornfalksgränd 2', icon: 'mdi-washing-machine', link: '/tornfalksgrand2' },
-        { text: 'Korsängsgatan 71', icon: 'mdi-washing-machine', link: '/korsangsgatan71' },
-      ],
-    }),
-  }
+<script setup>
+//IMPORTS
+  import { ref } from 'vue'
+  //import Localbase from 'localbase'
+  //import { generateAssigmentList } from '../laundryrooms'
+
+//LOCALBASE
+    //let db = new Localbase('db')
+
+//VUETIFY DRAWER
+  const drawer = ref(null)
+
+//LOOP ITEMS IN NAVIGATION
+  // const items = ref([
+  //   { text: 'Hem', icon: 'mdi-home', link: '/' },
+  //   { text: 'Skapa ny checklista', icon: 'mdi-database-refresh'}
+  // ])
+
 </script>

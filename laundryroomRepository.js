@@ -2,7 +2,7 @@ import Localbase from 'localbase'
 
 const DB = new Localbase('db')
 DB.config.debug = false
-const COLLECTION_NAME = 'laundryrooms'
+const COLLECTION_NAME = 'regions'
 
 const repository = {
 

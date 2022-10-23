@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        <h1>laundryroomlist</h1>
         <div v-for="laundryroom in region.laundryrooms" :key="laundryroom.id">
             <v-sheet
               elevation="8"
@@ -14,21 +13,23 @@
                     color="red"
                     hide-details
                     @change="syncToStorage(), closePanel(laundryroom.id, laundryroom.occupied)"
+                    class="ml-2"
                 ></v-checkbox>
 
                 <v-list class="pa-0">
-                <v-list-item>
-                    <template v-slot:prepend>
-                    <v-avatar color="grey-lighten-1">
-                        <v-img :src="key" aria-label="nyckel" alt="nyckel"></v-img>
-                    </v-avatar>
-                    </template>
+                    <v-list-item>
+                        <template v-slot:prepend>
+                        <v-avatar color="grey-lighten-1">
+                            <v-img :src="key" aria-label="nyckel" alt="nyckel"></v-img>
+                        </v-avatar>
+                        </template>
 
-                    <template v-slot:append>
-                        {{laundryroom.key ? 'nyckel nr.' + laundryroom.key : 'Ingen nyckel behövs'}}
-                    </template>
-                </v-list-item>
-                </v-list>          
+                        <template v-slot:append>
+                            {{laundryroom.key ? 'nyckel nr.' + laundryroom.key : 'Ingen nyckel behövs'}}
+                        </template>
+                    </v-list-item>
+                </v-list>
+                         
                 <v-expansion-panels v-model="panels" multiple variant="accordion">
                     <v-expansion-panel :value="laundryroom.id" :disabled="laundryroom.occupied">
                         <v-expansion-panel-title>
@@ -75,32 +76,30 @@
     let db = new Localbase('db')
 
 //GET ROUTE PARAMS
-const route = useRoute()
-
-//GET REGION
-let region = ref([])
+    const route = useRoute()
 
 //CLOSE EXPANSION PANEL ON CHECKBOX LAUNDRY OCCUPIED
-let panels = ref([])
-const closePanel = (id, occupied) => {
-    if(occupied) {
-        for( let i = 0; i < panels.value.length; i++) {
-            if(panels.value[i] == id) {
-                return panels.value =  panels.value.filter(e => e !== id); // will return ['A', 'C']
+    let panels = ref([])
+    const closePanel = (id, occupied) => {
+        if(occupied) {
+            for( let i = 0; i < panels.value.length; i++) {
+                if(panels.value[i] == id) {
+                    return panels.value =  panels.value.filter(e => e !== id); // will return ['A', 'C']
+                }
             }
         }
     }
-}
 
 //SET REGIONS COLLECTION ON CLICK & CHANGE
-const syncToStorage = async () => {
-  const data = await db.collection('regions').doc({id: region.value.id}).set(JSON.parse(JSON.stringify(region.value)))
-}
+    let region = ref([])
+    const syncToStorage = async () => {
+        await db.collection('regions').doc({id: region.value.id}).set(JSON.parse(JSON.stringify(region.value)))
+    }
 
 //GET STORED REGION FROM ROUTE PARAMS LOOP TO DOM 
-onMounted( () => {
-    db.collection('regions').doc({ id: parseInt(route.params.id) }).get().then(storedRegion => {       
-        region.value = storedRegion
+    onMounted( () => {
+        db.collection('regions').doc({ id: parseInt(route.params.id) }).get().then(storedRegion => {       
+            region.value = storedRegion
+        })
     })
-})
 </script>
