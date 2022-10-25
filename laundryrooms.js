@@ -1,5 +1,6 @@
 import Localbase from 'localbase'
 let db = new Localbase('db')
+import { v4 as uuidv4 } from 'uuid'
 
 const diskBorste = {
     name: 'Diskborste',
@@ -50,7 +51,7 @@ const lysRor = {
     img: '/lysror.jpg'
 }
 const proppSkap = {
-    name: 'Proppskåp',
+    name: 'Proppskåp, se till att alla säkringar pekar uppåt',
     img: '/proppskap.webp'
 }
 const pappersRulle = {
@@ -61,8 +62,24 @@ const toalettPapper = {
     name: 'Toalettpapper',
     img: '/toalettpapper.webp'
 }
+const tval = {
+    name: 'Tvål',
+    img: '/tval.webp'
+}
+const handSprit = {
+    name: 'Handsprit',
+    img: '/handsprit.webp'
+}
+const pappersHanddukar = {
+    name: 'Pappershanddukar',
+    img: '/pappershanddukar.webp'
+}
+const torky = {
+    name: 'Torky',
+    img: '/torky.webp'
+}
 const teknikSkap = {
-    name: 'Teknikskåp',
+    name: 'Teknikskåp, öppna dörren och titta efter vattenläckor',
     img: '/teknikskap.jpg'
 }
 
@@ -283,77 +300,77 @@ const teknikSkap = {
 //         name: 'Korsängsgatan 71',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 73',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 75',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 77',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 79',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 81',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 83',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 85',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 89',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 91',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan grovtvättstuga',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     }
 // ]
@@ -578,77 +595,77 @@ const teknikSkap = {
 //         name: 'Korsängsgatan 71',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 73',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 75',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 77',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 79',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 81',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 83',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 85',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 89',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan 91',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     },
 //     {
 //         name: 'Korsängsgatan grovtvättstuga',
 //         key: null,
 //         tasks: [
-//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+//             diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap, nodUtgang
 //         ]
 //     }
 // ]
@@ -867,89 +884,96 @@ const regions = [
         img: 'korsangen.webp',
         laundryrooms: [
             {
-                name: 'Krukmakaren',
-                key: null,
+                name: 'Korsängsgatan 73',
+                key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 71',
-                key: null,
+                key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 73',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 75',
-                key: null,
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang, toalettPapper, tval, handSprit, torky
+                ]
+            },
+            {
+                name: 'Korsängsgatan grovtvättstuga',
+                key: 1,
                 tasks: [
                     diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
                 ]
             },
             {
                 name: 'Korsängsgatan 77',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 79',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 81',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 83',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 85',
-                key: null,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
-                ]
-            },
-            {
-                name: 'Korsängsgatan 89',
-                key: null,
+                key: 1,
                 tasks: [
                     diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
                 ]
             },
             {
                 name: 'Korsängsgatan 91',
-                key: null,
+                key: 1,
                 tasks: [
                     diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
                 ]
             },
             {
-                name: 'Korsängsgatan grovtvättstuga',
-                key: null,
+                name: 'Korsängsgatan 87',
+                key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
                 ]
-            }
+            },
+            {
+                name: 'Korsängsgatan 89',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
+            {
+                name: 'Korsängsgatan 85',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
+            {
+                name: 'Korsängsgatan 83',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
+            {
+                name: 'Korsängsgatan 81',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
+            {
+                name: 'Korsängsgatan 79',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
+            {
+                name: 'Krukmakaren',
+                key: 1,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                ]
+            },
         ]
     }
 ]
@@ -1142,29 +1166,53 @@ const regions = [
 
 export async function generateAssigmentList () {
 
+
     for (let i = 0; i < regions.length; i++) {
 
-        let region = regions[i]
+        //let region = regions[i]
 
-        region.id = i + 1
+        regions[i].id = i + 1
         
-        for(let j = 0; j < region.laundryrooms.length; j++) {
+        for(let j = 0; j < regions[i].laundryrooms.length; j++) {
 
-            let laundryroom = region.laundryrooms[j]
+            //let laundryroom = region.laundryrooms[j]
+
+            // const laundryRoomId = laundryroom.name
+            // .replace(/å/g, 'a')
+            // .replace(/Å/g, 'A')
+            // .replace(/ä/g, 'a')
+            // .replace(/Ä/g, 'A')
+            // .replace(/ö/g, 'o')
+            // .replace(/Ö/g, 'O')
+            // .replace(/\s/g, '')
+            // .toLowerCase()
         
-                laundryroom.id = j + 1
-                laundryroom.ready = false
-                laundryroom.occupied = false   
+            regions[i].laundryrooms[j].id = j + 1
+                //laundryroom.id = laundryRoomId
+                regions[i].laundryrooms[j].ready = false
+                regions[i].laundryrooms[j].occupied = false   
 
-            for(let k = 0; k < laundryroom.tasks.length; k++) {
+            for(let k = 0; k < regions[i].laundryrooms[j].tasks.length; k++) {
 
-                let task = laundryroom.tasks[k]
+                //let task = laundryroom.tasks[k]
+
+                // const taskId = task.name
+                // .replace(/å/g, 'a')
+                // .replace(/Å/g, 'A')
+                // .replace(/ä/g, 'a')
+                // .replace(/Ä/g, 'A')
+                // .replace(/ö/g, 'o')
+                // .replace(/Ö/g, 'O')
+                // .replace(/\s/g, '')
+                // .toLowerCase()
                 
-                    task.id = k + 1
-                    task.done = false
+                regions[i].laundryrooms[j].tasks[k].id = regions[i].laundryrooms[j].name + (k + 1)
+                    //task.id = uuidv4()
+                    //task.id = taskId
+                    regions[i].laundryrooms[j].tasks[k].done = false
             }
         }
-        const key = region.name
+        const key = regions[i].name
             .replace(/å/g, 'a')
             .replace(/Å/g, 'A')
             .replace(/ä/g, 'a')
@@ -1173,6 +1221,6 @@ export async function generateAssigmentList () {
             .replace(/Ö/g, 'O')
             .replace(/\s/g, '')
             .toLowerCase()
-        await db.collection('regions').add(region, key)
+        await db.collection('regions').add(regions[i], key)
     }
 }

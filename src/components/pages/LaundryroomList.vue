@@ -38,7 +38,6 @@
                         <v-expansion-panel-text v-for="task in laundryroom.tasks" :key="task.id">
                         <v-list>
                             <v-list-item
-                            :key="task.id"
                             :title="task.name"
                             >
                             <template v-slot:prepend>
@@ -90,9 +89,10 @@
         }
     }
 
-//SET REGIONS COLLECTION ON CLICK & CHANGE
+//SET REGIONS COLLECTION ON CLICK
     let region = ref([])
     const syncToStorage = async () => {
+        console.log(region.value)
         await db.collection('regions').doc({id: region.value.id}).set(JSON.parse(JSON.stringify(region.value)))
     }
 
