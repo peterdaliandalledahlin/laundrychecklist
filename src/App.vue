@@ -67,7 +67,7 @@
         contain
       ></v-img>
 
-      <v-toolbar-title>Checklista för tvättstugor</v-toolbar-title>
+      <v-toolbar-title>Checklista för tvättstugor V. 0.5</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
