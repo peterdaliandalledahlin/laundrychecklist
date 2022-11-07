@@ -42,21 +42,21 @@ const sopSkyffel = {
     img: '/sopskyffel.png'
 }
 const nodUtgang = {
-    name: 'Nödutgång',
+    name: 'Nödutgång, kontrollera att fönster eller dörrar går att öppna helt',
     img: '/nodutgang.jpg'
 }
 const lysRor = {
-    name: 'Lysrör',
+    name: 'Lysrör, tänd alla lampor och kontrollera att alla lyser',
     img: '/lysror.jpg'
 }
 const proppSkap = {
     name: 'Proppskåp, se till att alla säkringar pekar uppåt',
     img: '/proppskap.webp'
 }
-const pappersRulle = {
-    name: 'Pappersrulle',
-    img: '/pappersrulle.webp'
-}
+// const pappersRulle = {
+//     name: 'Pappersrulle',
+//     img: '/pappersrulle.webp'
+// }
 const toalettPapper = {
     name: 'Toalettpapper',
     img: '/toalettpapper.webp'
@@ -69,10 +69,10 @@ const handSprit = {
     name: 'Handsprit',
     img: '/handsprit.webp'
 }
-const pappersHanddukar = {
-    name: 'Pappershanddukar',
-    img: '/pappershanddukar.webp'
-}
+// const pappersHanddukar = {
+//     name: 'Pappershanddukar',
+//     img: '/pappershanddukar.webp'
+// }
 const torky = {
     name: 'Torky',
     img: '/torky.webp'
@@ -81,54 +81,14 @@ const teknikSkap = {
     name: 'Teknikskåp, öppna dörren och titta efter vattenläckor',
     img: '/teknikskap.jpg'
 }
-
-// const regions = [
-//     {   name: 'Lillsidan',
-//         link: 'lillsidan',
-//         img: 'lillsidan.webp',
-//         laundryrooms: [
-//             {
-//                 id: 'tornfalksgrand2',
-//                 name: 'Tornfalksgränd 2',
-//                 key: 1,
-//                 tasks: [
-//                     diskBorste, diskTrasa
-//                 ]
-//             },
-//             {
-//                 id: 'tornfalksgrand5',
-//                 name: 'Tornfalksgränd 5',
-//                 key: 1,
-//                 tasks: [
-//                     diskBorste, diskTrasa
-//                 ]
-//             },
-//         ]
-//     },
-//     {
-//         name: 'Korsängen',
-//         link: 'korsangen',
-//         img: 'korsangen.webp',
-//         laundryrooms: [
-//             {
-//                 id: 'korsangsgatan73',
-//                 name: 'Korsängsgatan 73',
-//                 key: 1,
-//                 tasks: [
-//                     diskBorste, diskTrasa
-//                 ]
-//             },
-//             {
-//                 id: 'korsangsgatan71',
-//                 name: 'Korsängsgatan 71',
-//                 key: 1,
-//                 tasks: [
-//                     diskBorste, diskTrasa
-//                 ]
-//             },
-//         ]
-//     }
-// ]
+const golvRaka = {
+    name: 'Golvraka',
+    img: '/golvraka.webp'
+}
+const sopKvast = {
+    name: 'Sopkvast',
+    img: '/sopkvast.webp'
+}
 
 const regions = [
     {   name: 'Lillsidan',
@@ -139,39 +99,39 @@ const regions = [
                 name: 'Tornfalksgränd 2',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Tornfalksgränd 12',
+                key: 1,
+                ready: false,
+                occupied: false,
+                tasks: [
+                   diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Tornfalksgränd 16',
+                key: 1,
+                ready: false,
+                occupied: false,
+                tasks: [
+                   diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Tornfalksgränd 9',
+                key: 1,
+                tasks: [
+                   diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Tornfalksgränd 5',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Tornfalksgränd 7',
-                key: 1,
-                tasks: [
-                   diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-                {
-                name: 'Tornfalksgränd 12',
-                key: 1,
-                ready: false,
-                occupied: false,
-                tasks: [
-                   diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Stenfalksgränd 1',
-                key: 1,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
@@ -180,7 +140,7 @@ const regions = [
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
@@ -189,7 +149,7 @@ const regions = [
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
@@ -198,133 +158,97 @@ const regions = [
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Stenfalksgränd 18',
+                key: 1,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Stenfalksgränd 1',
+                key: 1,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Lärkfalksgränd 2',
-                key: 1,
+                key: 2,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Lärkfalksgränd 5',
-                key: 1,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Lärkfalksgränd 11',
-                key: 1,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Lärkfalksgränd 13',
-                key: 1,
+                key: 2,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Lärkfalksgränd 11',
+                key: 2,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Lärkfalksgränd 5',
+                key: 2,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Bivråksgränd 5',
-                key: 2,
+                key: 3,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Bivråksgränd 9A',
-                key: 2,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Bivråksgränd 9B',
-                key: 2,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Bivråksgränd Grovtvättstuga',
-                key: 2,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Fiskgjusegränd 3',
                 key: 3,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap
                 ]
             },
             {
-                name: 'Fiskgjusegränd 6',
+                name: 'Bivråksgränd 9A',
                 key: 3,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
-                name: 'Fiskgjusegränd 8',
+                name: 'Bivråksgränd 9B',
                 key: 3,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Fiskgjusegränd 11',
-                key: 3,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Ormvråksgränd 1',
-                key: 3,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
-                ]
-            },
-            {
-                name: 'Ormvråksgränd 6',
-                key: 3,
-                ready: false,
-                occupied: false,
-                tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
             {
@@ -333,7 +257,61 @@ const regions = [
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor
+                ]
+            },
+            {
+                name: 'Ormvråksgränd 6',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Ormvråksgränd 1',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor
+                ]
+            },
+            {
+                name: 'Fiskgjusegränd 6',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Fiskgjusegränd 8',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Fiskgjusegränd 3',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                ]
+            },
+            {
+                name: 'Fiskgjusegränd 11',
+                key: 3,
+                ready: false,
+                occupied: false,
+                tasks: [
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
                 ]
             },
         ]
@@ -347,91 +325,91 @@ const regions = [
                 name: 'Korsängsgatan 73',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 71',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 75',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang, toalettPapper, tval, handSprit, torky
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap, teknikSkap, nodUtgang, toalettPapper, tval, handSprit, torky
                 ]
             },
             {
                 name: 'Korsängsgatan grovtvättstuga',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap
                 ]
             },
             {
                 name: 'Korsängsgatan 77',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap, teknikSkap
                 ]
             },
             {
                 name: 'Korsängsgatan 91',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, proppSkap, teknikSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, proppSkap, teknikSkap
                 ]
             },
             {
                 name: 'Korsängsgatan 87',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 89',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 85',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 83',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 81',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Korsängsgatan 79',
                 key: 1,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
                 name: 'Krukmakaren',
-                key: 1,
+                key: 'Tagg',
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, lysRor, teknikSkap, nodUtgang
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, nodUtgang
                 ]
             },
         ]

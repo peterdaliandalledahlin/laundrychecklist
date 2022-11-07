@@ -34,7 +34,7 @@
                 <v-expansion-panels v-model="panels" multiple variant="accordion">
                     <v-expansion-panel :value="laundryroom.id" :disabled="laundryroom.occupied">
                         <v-expansion-panel-title class="pr-3">
-                            <div v-for="task in laundryroom.tasks" :key="task.id" >
+                            <div v-for="task in laundryroom.tasks" :key="task.id">
                                 <!-- <v-badge dot v-if="!task.done" color="error" :content="task.name" inline></v-badge> -->
                                 <v-avatar size="x-small" class="mr-3" v-if="!task.done">
                                     <v-img
