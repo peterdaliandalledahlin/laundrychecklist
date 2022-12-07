@@ -29,7 +29,7 @@
             label="Jag förstår"
           >
           </v-checkbox>
-          <v-btn @click="dialog = true" color="error" :disabled="!checkbox">Skapa ny checklista</v-btn>
+          <v-btn @click="dialog = true" color="deep-orange" :disabled="!checkbox">Skapa ny checklista</v-btn>
         </v-form>
       </v-row>
 
@@ -38,10 +38,10 @@
       >
         <v-card>
           <v-card-text>
-            Är du säker på att du vill radera listan på tvättstugor och skapa en ny?. Du kan inte ändra dig!
+            Är du säker på att du vill radera listan på tvättstugor och skapa en ny? Du kan inte ändra dig! (klicka bara bredvid rutan om du ändrar dig)
           </v-card-text>
           <v-card-actions>
-            <v-btn color="pink" block @click="dialog = false, createDb()">Jag är säker!</v-btn>
+            <v-btn color="deep-orange" block @click="dialog = false, createDb()">Jag är säker!</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -68,3 +68,10 @@ const createDb = async () => {
   router.push('/')
 }
 </script>
+
+<style scoped>
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+</style>

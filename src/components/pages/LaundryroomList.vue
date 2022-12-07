@@ -78,7 +78,7 @@
 //IMPORTS
     import { ref, onMounted } from 'vue'
     import { useRoute } from 'vue-router'
-    import key from '../../assets/key.png'
+    import key from '../../assets/nyckel.png'
     import Localbase from 'localbase'
 
 //LOCALBASE
@@ -115,9 +115,9 @@
 </script>
 
 <style scoped>
-.v-expansion-panel {
+/* .v-expansion-panel {
     overflow-x: scroll !important;
-}
+} */
 /* .v-list-item.v-theme--light.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text {
     justify-content: start !important;
 } */

@@ -3,55 +3,55 @@ let db = new Localbase('db')
 
 const diskBorste = {
     name: 'Diskborste',
-    img: '/diskborste.jpg'
+    img: '/diskborste.gif'
 }
 const diskTrasa = {
     name: 'Disktrasa',
-    img: '/disktrasa.png'
+    img: '/disktrasa.gif'
 }
 const vaskSkrapa = {
     name: 'Vaskskrapa',
-    img: '/vaskskrapa.webp'
+    img: '/vaskskrapa.gif'
 }
 const alloRen = {
     name: 'Alloren',
-    img: '/alloren.webp'
+    img: '/alloren.gif'
 }
 const luddBorste = {
     name: 'Luddborste',
-    img: '/luddborste.jpg'
+    img: '/luddborste.gif'
 }
 const moppGarn = {
     name: 'Moppgarn',
-    img: '/moppgarn.jpg'
+    img: '/moppgarn_moppskaft.gif'
 }
 const moppSkaft = {
     name: 'Moppskaft',
-    img: '/moppskaft.jpg'
+    img: '/moppgarn_moppskaft.gif'
 }
 const moppHink = {
     name: 'Mopphink',
-    img: '/mopphink.jpg'
+    img: '/mopphink.gif'
 }
 const sopBorste = {
     name: 'Sopborste',
-    img: '/sopborste.png'
+    img: '/sopborste.gif'
 }
 const sopSkyffel = {
     name: 'Sopskyffel',
-    img: '/sopskyffel.png'
+    img: '/sopskyffel.gif'
 }
 const nodUtgang = {
     name: 'Nödutgång, kontrollera att fönster eller dörrar går att öppna helt',
-    img: '/nodutgang.jpg'
+    img: '/nodutgang.gif'
 }
 const lysRor = {
     name: 'Lysrör, tänd alla lampor och kontrollera att alla lyser',
-    img: '/lysror.jpg'
+    img: '/lysror.gif'
 }
 const proppSkap = {
     name: 'Proppskåp, se till att alla säkringar pekar uppåt',
-    img: '/proppskap.webp'
+    img: '/proppskap.gif'
 }
 // const pappersRulle = {
 //     name: 'Pappersrulle',
@@ -59,15 +59,15 @@ const proppSkap = {
 // }
 const toalettPapper = {
     name: 'Toalettpapper',
-    img: '/toalettpapper.webp'
+    img: '/toalettpapper.gif'
 }
 const tval = {
     name: 'Tvål',
-    img: '/tval.webp'
+    img: '/tval.gif'
 }
 const handSprit = {
     name: 'Handsprit',
-    img: '/handsprit.webp'
+    img: '/handsprit.gif'
 }
 // const pappersHanddukar = {
 //     name: 'Pappershanddukar',
@@ -75,19 +75,19 @@ const handSprit = {
 // }
 const torky = {
     name: 'Torky',
-    img: '/torky.webp'
+    img: '/pappersrulle.gif'
 }
 const teknikSkap = {
     name: 'Teknikskåp, öppna dörren och titta efter vattenläckor',
-    img: '/teknikskap.jpg'
+    img: '/teknikskap.gif'
 }
 const golvRaka = {
     name: 'Golvraka',
-    img: '/golvraka.webp'
+    img: '/golvraka.gif'
 }
 const sopKvast = {
     name: 'Sopkvast',
-    img: '/sopkvast.webp'
+    img: '/sopkvast.gif'
 }
 
 const regions = [
