@@ -1,5 +1,6 @@
 import Localbase from 'localbase'
 let db = new Localbase('db')
+db.config.debug = false
 
 const diskBorste = {
     name: 'Diskborste',
@@ -53,10 +54,6 @@ const proppSkap = {
     name: 'Proppskåp, se till att alla säkringar pekar uppåt',
     img: '/proppskap.gif'
 }
-// const pappersRulle = {
-//     name: 'Pappersrulle',
-//     img: '/pappersrulle.webp'
-// }
 const toalettPapper = {
     name: 'Toalettpapper',
     img: '/toalettpapper.gif'
@@ -69,10 +66,6 @@ const handSprit = {
     name: 'Handsprit',
     img: '/handsprit.gif'
 }
-// const pappersHanddukar = {
-//     name: 'Pappershanddukar',
-//     img: '/pappershanddukar.webp'
-// }
 const torky = {
     name: 'Torky',
     img: '/pappersrulle.gif'
@@ -234,7 +227,7 @@ const regions = [
                 ]
             },
             {
-                name: 'Bivråksgränd 9A',
+                name: 'Bivråksgränd 9.1',
                 key: 3,
                 ready: false,
                 occupied: false,
@@ -243,7 +236,7 @@ const regions = [
                 ]
             },
             {
-                name: 'Bivråksgränd 9B',
+                name: 'Bivråksgränd 9.2',
                 key: 3,
                 ready: false,
                 occupied: false,
@@ -253,7 +246,7 @@ const regions = [
             },
             {
                 name: 'Ormvråksgränd 8',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -262,16 +255,16 @@ const regions = [
             },
             {
                 name: 'Ormvråksgränd 6',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
-                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor, proppSkap
+                    diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, nodUtgang, lysRor
                 ]
             },
             {
                 name: 'Ormvråksgränd 1',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -280,7 +273,7 @@ const regions = [
             },
             {
                 name: 'Fiskgjusegränd 6',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -289,7 +282,7 @@ const regions = [
             },
             {
                 name: 'Fiskgjusegränd 8',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -298,7 +291,7 @@ const regions = [
             },
             {
                 name: 'Fiskgjusegränd 3',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -307,7 +300,7 @@ const regions = [
             },
             {
                 name: 'Fiskgjusegränd 11',
-                key: 3,
+                key: 4,
                 ready: false,
                 occupied: false,
                 tasks: [
@@ -364,14 +357,14 @@ const regions = [
                 ]
             },
             {
-                name: 'Korsängsgatan 87',
+                name: 'Korsängsgatan 89',
                 key: 1,
                 tasks: [
                     diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
                 ]
             },
             {
-                name: 'Korsängsgatan 89',
+                name: 'Korsängsgatan 87',
                 key: 1,
                 tasks: [
                     diskBorste, diskTrasa, vaskSkrapa, alloRen, moppGarn, moppSkaft, moppHink, luddBorste, sopBorste, sopSkyffel, golvRaka, sopKvast, lysRor, teknikSkap, nodUtgang
@@ -416,32 +409,13 @@ const regions = [
     }
 ]
 
-
-
 export async function generateAssigmentList () {
-    
-    // regions.forEach((element) => {
-    //     //console.log(element.laundryrooms)
-    //     element.laundryrooms.forEach((item) => {
-    //         item.tasks.forEach((task) => {
-    //             console.log(task)
-    //         })
-    //     })
-    //     db.collection('regions').add(element, element.name)
-    //   })
-
 
     for (let i = 0; i < regions.length; i++) {
-
-        //let region = regions[i]
 
         regions[i].id = i + 1
         
         for(let j = 0; j < regions[i].laundryrooms.length; j++) {
-
-            //let laundryroom = region.laundryrooms[j]
-
-
         
             regions[i].laundryrooms[j].id = regions[i].id + '_' + (j + 1)
             regions[i].laundryrooms[j].ready = false
@@ -449,10 +423,7 @@ export async function generateAssigmentList () {
 
             for(let k = 0; k < regions[i].laundryrooms[j].tasks.length; k++) {
 
-                //let task = laundryroom.tasks[k]
-
                 regions[i].laundryrooms[j].tasks[k] = JSON.parse(JSON.stringify(regions[i].laundryrooms[j].tasks[k]))
-                
                 regions[i].laundryrooms[j].tasks[k].id = regions[i].laundryrooms[j].id + '_' + (k + 1)
                 regions[i].laundryrooms[j].tasks[k].done = false
             }

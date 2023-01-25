@@ -51,9 +51,9 @@
           <v-card-title>Det finns ingen tvättstugechecklista.</v-card-title>
         </v-img>
 
-        <v-card-subtitle class="pt-4">
+        <!-- <v-card-subtitle class="pt-4">
           Number 10
-        </v-card-subtitle>
+        </v-card-subtitle> -->
 
         <v-card-text>
           <div>Gå till "Inställningar" i menyn till vänster och följ instruktionerna, eller tryck på länken nedan .</div>
@@ -68,21 +68,6 @@
         </v-card-actions>
       </v-card>
 
-      <!-- <v-banner
-      v-model="banner"
-        lines="one"
-        icon="mdi-database-refresh"
-        color="deep-purple-accent-4"
-        class="my-4"
-      >
-        <v-banner-text>
-          Det finns ingen checklista, gå till Inställningar i menyn till vänster och följ instruktionerna.
-        </v-banner-text>
-  
-        <template v-slot:actions>
-          <v-btn @click="banner = false">Stäng</v-btn>
-        </template>
-      </v-banner> -->
     </div>
   </v-container>
 </template>
@@ -92,15 +77,9 @@
   import { ref, onMounted } from 'vue'
   import Localbase from 'localbase'
 
-//LOCALBASE
-  let db = new Localbase('db') 
-
-// const filteredAssignments = async () => {
-  //   const assignments = await db.collection('assignments').get()
-  //       return storedAssignments.value = assignments
-  //         .sort((a, b) => a.id - b.id
-  //       )
-  // }
+//INITIALIZE LOCALBASE
+  let db = new Localbase('db')
+  db.config.debug = false
 
 let banner = ref(false)
   
@@ -109,11 +88,9 @@ let banner = ref(false)
   onMounted(() => {
       db.collection('regions').get().then(regions => {
         if(regions.length) {
-          console.log('lista')
           banner.value = false
           storedRegions.value = regions
         }else {
-          console.log('ingen lista')
           banner.value = true
         }
       })  

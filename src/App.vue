@@ -14,26 +14,6 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      
-      <!-- <v-divider></v-divider>
-  
-      <v-list density="compact">
-        <v-list-subheader>LÄNKAR</v-list-subheader>
-
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :value="item"
-          active-color="#3E2723"
-          :to="item.link"
-        >
-          <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
-          </template>
-
-          <v-list-item-title @click="drawer = !drawer">{{item.text}}</v-list-item-title>
-        </v-list-item>
-      </v-list> -->
 
       <v-divider></v-divider>
   
@@ -51,6 +31,12 @@
           </template>
           <v-list-item-title @click="drawer = !drawer">Inställningar</v-list-item-title>
         </v-list-item>
+        <v-list-item link>
+          <template v-slot:prepend>
+            <v-icon :icon="theme.name._value == 'dark' ? 'mdi-toggle-switch' : 'mdi-toggle-switch-off'"></v-icon>
+          </template>
+          <v-list-item-title @click="toggleTheme(); drawer = !drawer">Växla ljust/mörkt</v-list-item-title>
+        </v-list-item>
       </v-list>
 
     </v-navigation-drawer>
@@ -67,11 +53,24 @@
         contain
       ></v-img>
 
-      <v-toolbar-title>Checklista för tvättstugor V. 0.7</v-toolbar-title>
+      <v-toolbar-title>Checklista för tvättstugor 1.0</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
       <router-view />
+      <v-footer fixed>
+      <v-card
+        flat
+        tile
+        width="100%"
+        class="text-center"
+      >
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>&copy; Omnia team EHB - App skapad av <a href="https://onedotzero.se/" target="_blank">onedotzero.se</a></strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
     </v-main>
   </v-app>
 </template>
@@ -79,19 +78,15 @@
 <script setup>
 //IMPORTS
   import { ref } from 'vue'
-  //import Localbase from 'localbase'
-  //import { generateAssigmentList } from '../laundryrooms'
+  import { useTheme } from 'vuetify'
 
-//LOCALBASE
-    //let db = new Localbase('db')
-
-//VUETIFY DRAWER
+  
+  //VUETIFY DRAWER
   const drawer = ref(null)
+  
+  const theme = useTheme()
 
-//LOOP ITEMS IN NAVIGATION
-  // const items = ref([
-  //   { text: 'Hem', icon: 'mdi-home', link: '/' },
-  //   { text: 'Skapa ny checklista', icon: 'mdi-database-refresh'}
-  // ])
+  const toggleTheme = () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+
 
 </script>

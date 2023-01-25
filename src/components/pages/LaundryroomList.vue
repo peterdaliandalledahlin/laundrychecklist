@@ -83,6 +83,7 @@
 
 //LOCALBASE
     let db = new Localbase('db')
+    db.config.debug = false
 
 //GET ROUTE PARAMS
     const route = useRoute()
@@ -118,10 +119,4 @@
 /* .v-expansion-panel {
     overflow-x: scroll !important;
 } */
-/* .v-list-item.v-theme--light.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text {
-    justify-content: start !important;
-} */
-    /* .v-list.v-theme--light.v-list--density-default.v-list--one-line.pa-0:nth-child(1) {
-        justify-content: start !important;
-    } */
 </style>
