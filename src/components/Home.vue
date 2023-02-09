@@ -11,6 +11,8 @@
         v-for="region in storedRegions" :key="region.id"
           class="mx-auto pt-5 mb-3"
           max-width="350"
+          link
+          :to="{ name: 'laundryroom-list', params: { id: region.id } }"
         >
           <v-img
             class="align-end text-white"
@@ -18,12 +20,12 @@
             :src="region.img"
             cover
           >
-            <v-card-title>{{ region.name }}</v-card-title>
+            <!-- <v-card-title>{{ region.name }}</v-card-title> -->
           </v-img>
     
-          <v-card-text>
+          <!-- <v-card-text>
             <div>Tvättstugor på {{ region.name}}</div>
-          </v-card-text>
+          </v-card-text> -->
     
           <v-card-actions>
             <v-btn color="orange">
