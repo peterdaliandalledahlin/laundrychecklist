@@ -75,7 +75,7 @@ const teknikSkap = {
     img: '/teknikskap.gif'
 }
 const golvRaka = {
-    name: 'Golvraka',
+    name: 'Golvskrapa',
     img: '/golvraka.gif'
 }
 const sopKvast = {

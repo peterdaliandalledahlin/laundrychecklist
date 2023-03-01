@@ -7,20 +7,13 @@
               height="100%"
               width="100%"
             >
-                <v-checkbox
-                    v-model="laundryroom.occupied"
-                    :label="`${laundryroom.name} upptagen`"
-                    color="red"
-                    hide-details
-                    @change="syncToStorage(), closePanel(laundryroom.id, laundryroom.occupied)"
-                    class="ml-2"
-                ></v-checkbox>
 
                 <v-list class="d-flex pa-0">
                     <v-list-item>
                         <template v-slot:prepend>
+                            {{ laundryroom.name }}
                             <v-avatar color="grey-lighten-1">
-                                <v-img :src="key" aria-label="nyckel" alt="nyckel"></v-img>
+                                <v-img class="ml-3" :src="key" aria-label="nyckel" alt="nyckel"></v-img>
                             </v-avatar>
                         </template>
 
@@ -30,6 +23,17 @@
                         </template>
                     </v-list-item>
                 </v-list>
+                
+                <v-checkbox
+                    v-model="laundryroom.occupied"
+                    :label="`upptagen`"
+                    color="red"
+                    hide-details
+                    @change="syncToStorage(), closePanel(laundryroom.id, laundryroom.occupied)"
+                    class="ml-2"
+                ></v-checkbox>
+
+                
                          
                 <v-expansion-panels v-model="panels" multiple variant="accordion">
                     <v-expansion-panel :value="laundryroom.id" :disabled="laundryroom.occupied">
