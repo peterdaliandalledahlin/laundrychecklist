@@ -18,7 +18,6 @@
                         </template>
 
                         <template v-slot:append>
-                            <!-- {{laundryroom.name}} -->
                             {{laundryroom.key ? 'nyckel nr.' + laundryroom.key : 'Ingen nyckel behövs'}}
                         </template>
                     </v-list-item>
@@ -32,14 +31,11 @@
                     @change="syncToStorage(), closePanel(laundryroom.id, laundryroom.occupied)"
                     class="ml-2"
                 ></v-checkbox>
-
-                
-                         
+    
                 <v-expansion-panels v-model="panels" multiple variant="accordion">
                     <v-expansion-panel :value="laundryroom.id" :disabled="laundryroom.occupied">
                         <v-expansion-panel-title class="pr-3">
                             <div v-for="task in laundryroom.tasks" :key="task.id">
-                                <!-- <v-badge dot v-if="!task.done" color="error" :content="task.name" inline></v-badge> -->
                                 <v-avatar size="x-small" class="mr-3" v-if="!task.done">
                                     <v-img
                                         :src="task.img"
@@ -107,7 +103,6 @@
 //SET REGIONS COLLECTION ON CLICK
     let region = ref([])
     const syncToStorage = async () => {
-        //console.log(region.value)
         await db.collection('regions').doc({id: region.value.id}).set(JSON.parse(JSON.stringify(region.value)))
     }
 
@@ -120,6 +115,7 @@
 </script>
 
 <style scoped>
+/* CSS ANIMATED GIFS WORK ON MOBILE */
 /* .v-expansion-panel {
     overflow-x: scroll !important;
 } */
